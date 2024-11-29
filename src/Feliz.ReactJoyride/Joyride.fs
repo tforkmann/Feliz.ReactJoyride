@@ -5,11 +5,12 @@ open Fable.Core
 
 [<Erase>]
 type joyride =
-    static member inline steps (props: IStepsProp seq) = Interop.mkJoyrideProp "steps" (createObj !!props)
+    static member inline steps (props: IStepsProp seq) = (!!("steps" ==> props))
+    static member inline run (run:bool)= Interop.mkJoyrideProp "run" run
 
 [<Erase>]
 type steps =
-    static member inline step (props: IStepProp seq) = Interop.mkStepsProp "step" (createObj !!props)
+    static member inline step (props: IStepProp seq) = !!(createObj !!props)
 
 [<Erase>]
 type step =
