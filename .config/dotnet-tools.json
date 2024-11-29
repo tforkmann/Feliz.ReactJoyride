@@ -10,14 +10,14 @@
       "rollForward": false
     },
     "fable": {
-      "version": "4.23.0",
+      "version": "4.24.0",
       "commands": [
         "fable"
       ],
       "rollForward": false
     },
     "fantomas": {
-      "version": "6.3.15",
+      "version": "6.3.12",
       "commands": [
         "fantomas"
       ],
