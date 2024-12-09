@@ -11,7 +11,7 @@
   </ItemGroup>
   <PropertyGroup>
     <NpmDependencies>
-      <NpmPackage Name="react-color" Version="gt 2.0.0 lt 2.9.9" ResolutionStrategy="Max" DevDependency="true" />
+      <NpmPackage Name="react-joyride" Version="gt 2.0.0 lt 2.9.9" ResolutionStrategy="Max" DevDependency="true" />
     </NpmDependencies>
   </PropertyGroup>
   <ItemGroup>

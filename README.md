@@ -12,7 +12,7 @@ dotnet paket add Feliz.ReactJoyride
 and install the npm package
 
 ```
-npm install --save react-color
+npm install --save react-joyride
 ```
 
 or use Femto:
