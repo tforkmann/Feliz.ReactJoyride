@@ -31,21 +31,44 @@ dotnet run
 Here is an example ReactJoyride
 ```fs
 [<ReactComponent>]
-// let QRCodeCanvas () =
-//     QRCode.qrcodecanvas [
-//         qrCodeCanvas.value "https://www.google.com"
-//         qrCodeCanvas.size 600
-//         qrCodeCanvas.bgColor "#ffffff"
-//         qrCodeCanvas.fgColor "#000000"
-//         qrCodeCanvas.level "L"
-//         qrCodeCanvas.includeMargin false
-//         qrCodeCanvas.imageSettings [
-//             imageSettings.src "https://msuecar.azureedge.net/logos/favicon-32x32.png"
-//             imageSettings.height 24
-//             imageSettings.width 24
-//             imageSettings.excavate true
-//         ]
-//     ]
-```
+let Joyride (model:Model) dispatch =
+    Joyride.joyride [
+        joyride.run model.IsRunning
+        joyride.steps [
+            steps.step [
+                step.target ".my-button"
+                step.content "Click this button to start your tour!"
+            ]
+            steps.step [
+                step.target ".highlighted-section"
+                step.content "This is a highlighted section."
+            ]
+        ]
+    ]
 
-You can find more examples [here](https://tforkmann.github.io/Feliz.ReactJoyride/)
+let view (model: Model) (dispatch: Msg -> unit) =
+    Html.div [
+        prop.children [
+            Html.section [
+                prop.className "section"
+                prop.children [
+                    Html.h1 [ prop.className "title"; prop.text "Feliz + Bulma + Joyride" ]
+                    Html.p [ prop.className "subtitle"; prop.text "A guided tour example using Joyride." ]
+
+                    Html.button [
+                        prop.className "button is-primary my-button"
+                        prop.text "Start Tour"
+                        prop.onClick (fun _ -> dispatch StartTour)
+                    ]
+
+                    Html.div [
+                        prop.className "box highlighted-section"
+                        prop.text "This is a highlighted Bulma box."
+                    ]
+                ]
+            ]
+
+            Joyride model dispatch
+        ]
+        ]
+```
