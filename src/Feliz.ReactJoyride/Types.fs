@@ -12,3 +12,15 @@ type IStepsProp =
 type IStepProp =
     interface
     end
+
+type ILocaleProp =
+    interface
+    end
+
+type IJoyrideStylesProp =
+    interface
+    end
+
+type IJoyrideStyleProp =
+    interface
+    end

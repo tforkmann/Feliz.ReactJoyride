@@ -1,12 +1,38 @@
 namespace Feliz.ReactJoyride
 
+open Feliz
 open Fable.Core.JsInterop
 open Fable.Core
 
 [<Erase>]
 type joyride =
     static member inline steps (props: IStepsProp seq) = (!!("steps" ==> props))
-    static member inline run (run:bool)= Interop.mkJoyrideProp "run" run
+    static member inline run (run: bool) = Interop.mkJoyrideProp "run" run
+    static member inline continuous (continuous: bool) = Interop.mkJoyrideProp "continuous" continuous
+    static member inline locale (props: ILocaleProp seq) = Interop.mkJoyrideProp "locale" (createObj !!props)
+    static member inline styles (props: IJoyrideStylesProp seq) = Interop.mkJoyrideProp "styles" (createObj !!props)
+
+[<Erase>]
+type joyrideStyles =
+    static member inline options (options: IJoyrideStyleProp seq) = Interop.mkStylesProp "options" (createObj !!options)
+
+[<Erase>]
+type joyrideStyle =
+    static member inline arrowColor (color: string) = Interop.mkStyleProp "arrowColor" color
+    static member inline backgroundColor (color: string) = Interop.mkStyleProp "backgroundColor" color
+    static member inline overlayColor (color: string) = Interop.mkStyleProp "overlayColor" color
+    static member inline primaryColor (color: string) = Interop.mkStyleProp "primaryColor" color
+    static member inline textColor (color: string) = Interop.mkStyleProp "textColor" color
+    static member inline width (width: int) = Interop.mkStyleProp "width" width
+    static member inline zIndex (zIndex: int) = Interop.mkStyleProp "zIndex" zIndex
+
+[<Erase>]
+type locale =
+    static member inline back (back: string) = Interop.mkLocaleProp "back" back
+    static member inline close (close: string) = Interop.mkLocaleProp "close" close
+    static member inline last (last: string) = Interop.mkLocaleProp "last" last
+    static member inline next (next: string) = Interop.mkLocaleProp "next" next
+    static member inline skip (skip: string) = Interop.mkLocaleProp "skip" skip
 
 [<Erase>]
 type steps =
