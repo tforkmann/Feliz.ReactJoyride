@@ -19,6 +19,20 @@ let update msg (model: Model) =
 let Joyride (model:Model) dispatch =
     Joyride.joyride [
         joyride.run model.IsRunning
+        joyride.continuous true
+        joyride.locale [
+            locale.back "Back"
+            locale.close "Close"
+            locale.last "Last"
+            locale.next "Next"
+            locale.skip "Skip"
+        ]
+        joyride.styles [
+            joyrideStyles.options [
+                joyrideStyle.textColor "#3D3D3D"
+                joyrideStyle.primaryColor "green"
+            ]
+        ]
         joyride.steps [
             steps.step [
                 step.target ".my-button"
