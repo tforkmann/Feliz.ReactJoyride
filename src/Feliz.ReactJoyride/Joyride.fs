@@ -8,7 +8,6 @@ type joyride =
     static member inline steps (props: IStepsProp seq) = (!!("steps" ==> props))
     static member inline run (run: bool) = Interop.mkJoyrideProp "run" run
     static member inline continuous (continuous: bool) = Interop.mkJoyrideProp "continuous" continuous
-    static member inline isLastStep (isLastStep : bool) = Interop.mkJoyrideProp "isLastStep" isLastStep
     static member inline showSkipButton (showSkipButton: bool) = Interop.mkJoyrideProp "showSkipButton" showSkipButton
     static member inline showProgress (showProgress: bool) = Interop.mkJoyrideProp "showProgress" showProgress
     static member inline scrollToFirstStep (scrollToFirstStep: bool) = Interop.mkJoyrideProp "scrollToFirstStep" scrollToFirstStep
@@ -16,6 +15,8 @@ type joyride =
     static member inline hideCloseButton (hideCloseButton : bool) = Interop.mkJoyrideProp "hideCloseButton" hideCloseButton
     static member inline locale (props: ILocaleProp seq) = Interop.mkJoyrideProp "locale" (createObj !!props)
     static member inline styles (props: IJoyrideStylesProp seq) = Interop.mkJoyrideProp "styles" (createObj !!props)
+    static member inline callback (callback: ICallbackProp -> unit) : IJoyrideProp =
+        !!("callback" ==> callback)
 
 [<Erase>]
 type joyrideStyles =

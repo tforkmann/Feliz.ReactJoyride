@@ -7,19 +7,25 @@ open Feliz.ReactJoyride
 type Model = { IsRunning: bool }
 
 type Msg =
-| StartTour
+| UpdateTour
 
 let init () = {  IsRunning = false }, Cmd.none
 
 let update msg (model: Model) =
     match msg with
-    | StartTour -> { model with IsRunning = true }, Cmd.none
+    | UpdateTour -> { model with IsRunning = not model.IsRunning }, Cmd.none
 
 [<ReactComponent>]
 let Joyride (model:Model) dispatch =
     Joyride.joyride [
         joyride.run model.IsRunning
         joyride.continuous true
+        joyride.callback (fun prop ->
+            printfn "index: %A" prop.index
+            printfn "size: %A" prop.size
+            printfn "status: %A" prop.status
+            printfn "origin: %A" prop.origin
+        )
         joyride.locale [
             locale.back "Back"
             locale.close "Close"
@@ -57,7 +63,7 @@ let view (model: Model) (dispatch: Msg -> unit) =
                     Html.button [
                         prop.className "button is-primary my-button"
                         prop.text "Start Tour"
-                        prop.onClick (fun _ -> dispatch StartTour)
+                        prop.onClick (fun _ -> dispatch UpdateTour)
                     ]
 
                     Html.div [

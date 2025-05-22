@@ -1,5 +1,5 @@
 namespace Feliz.ReactJoyride
-
+open Fable.Core
 /// This interface allows us to stop adding random props to the react-joyride.
 type IJoyrideProp =
     interface
@@ -24,3 +24,15 @@ type IJoyrideStylesProp =
 type IJoyrideStyleProp =
     interface
     end
+
+[<Erase>]
+type ICallbackProp =
+    abstract action: string
+    abstract controlled: bool
+    abstract index: int
+    abstract lifecycle: string
+    abstract origin: obj option
+    abstract size: int
+    abstract status: string
+    abstract step: obj
+    abstract ``type``: string
