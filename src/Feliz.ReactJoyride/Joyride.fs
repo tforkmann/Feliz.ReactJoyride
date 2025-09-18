@@ -5,8 +5,11 @@ open Fable.Core
 
 [<Erase>]
 type joyride =
-    static member inline steps (props: IStepsProp seq) = (!!("steps" ==> props))
+    static member inline steps (props: IStepsProp seq) = !!("steps" ==> props)
     static member inline run (run: bool) = Interop.mkJoyrideProp "run" run
+    static member inline scrollDuration (scrollDuration: int) = Interop.mkJoyrideProp "scrollDuration" scrollDuration
+    static member inline disableScrolling (disableScrolling: bool) = Interop.mkJoyrideProp "disableScrolling" disableScrolling
+    static member inline scrollOffset (scrollOffset: int) = Interop.mkJoyrideProp "scrollOffset" scrollOffset
     static member inline continuous (continuous: bool) = Interop.mkJoyrideProp "continuous" continuous
     static member inline showSkipButton (showSkipButton: bool) = Interop.mkJoyrideProp "showSkipButton" showSkipButton
     static member inline showProgress (showProgress: bool) = Interop.mkJoyrideProp "showProgress" showProgress
