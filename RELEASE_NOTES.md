@@ -1,3 +1,5 @@
+#### 0.0.8 - 2025-10-21
+* Migrate to Reactour
 #### 0.0.7 - 2025-09-18
 * Add disableScrolling, scrollOffset, scrollDuration
 #### 0.0.6 - 2025-05-22
