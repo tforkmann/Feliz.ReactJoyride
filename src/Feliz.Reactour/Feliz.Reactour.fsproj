@@ -6,12 +6,12 @@
   <ItemGroup>
     <Compile Include="Types.fs" />
     <Compile Include="Interop.fs" />
-    <Compile Include="Joyride.fs" />
+    <Compile Include="Reactour.fs" />
     <Compile Include="TourProvider.fs" />
   </ItemGroup>
   <PropertyGroup>
     <NpmDependencies>
-      <NpmPackage Name="reactour" Version="gt 1.0.0 lt 1.9.9" ResolutionStrategy="Max" DevDependency="true" />
+      <NpmPackage Name="@reactour/tour" Version="gt 3.0.0 lt 3.9.9" ResolutionStrategy="Max" DevDependency="true" />
     </NpmDependencies>
   </PropertyGroup>
   <ItemGroup>

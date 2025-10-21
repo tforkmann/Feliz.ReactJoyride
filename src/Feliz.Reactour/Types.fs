@@ -2,7 +2,10 @@ namespace Feliz.Reactour
 
 open Fable.Core
 
-/// This interface allows us to stop adding random props to the reactour.
+/// This interface allows us to stop adding random props to the TourProvider.
+type ITourProviderProp =
+    interface
+    end
 type IReactourProp =
     interface
     end
@@ -19,11 +22,11 @@ type ILocaleProp =
     interface
     end
 
-type IJoyrideStylesProp =
+type IReactourStylesProp =
     interface
     end
 
-type IJoyrideStyleProp =
+type IReactourStyleProp =
     interface
     end
 

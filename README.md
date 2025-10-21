@@ -31,10 +31,10 @@ dotnet run
 Here is an example Reactour
 ```fs
 [<ReactComponent>]
-let Joyride (model:Model) dispatch =
-    Joyride.joyride [
-        joyride.run model.IsRunning
-        joyride.steps [
+let Reactour (model:Model) dispatch =
+    Reactour.reactour [
+        reactour.run model.IsRunning
+        reactour.steps [
             steps.step [
                 step.target ".my-button"
                 step.content "Click this button to start your tour!"
@@ -52,8 +52,8 @@ let view (model: Model) (dispatch: Msg -> unit) =
             Html.section [
                 prop.className "section"
                 prop.children [
-                    Html.h1 [ prop.className "title"; prop.text "Feliz + Bulma + Joyride" ]
-                    Html.p [ prop.className "subtitle"; prop.text "A guided tour example using Joyride." ]
+                    Html.h1 [ prop.className "title"; prop.text "Feliz + Bulma + Reactour" ]
+                    Html.p [ prop.className "subtitle"; prop.text "A guided tour example using Reactour." ]
 
                     Html.button [
                         prop.className "button is-primary my-button"
@@ -68,7 +68,7 @@ let view (model: Model) (dispatch: Msg -> unit) =
                 ]
             ]
 
-            Joyride model dispatch
+            Reactour model dispatch
         ]
         ]
 ```

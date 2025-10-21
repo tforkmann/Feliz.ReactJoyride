@@ -1,4 +1,4 @@
-module Docs.Pages.QrCodeView
+module Docs.Pages.ReactourView
 
 open Feliz
 open Feliz.Bulma

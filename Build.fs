@@ -41,21 +41,21 @@ let projectUrl = sprintf "%s/%s" gitHome gitName
 
 // Short summary of the project
 // (used as description in AssemblyInfo and as a short summary for NuGet package)
-let summary = "Feliz React Binding for react-joyride"
+let summary = "Feliz React Binding for reactour"
 
 let copyright = "Copyright \169 2022"
-let iconUrl = "https://raw.githubusercontent.com/tforkmann/Feliz.Reactour/main/Feliz.ReactJoyride_logo.png"
+let iconUrl = "https://raw.githubusercontent.com/tforkmann/Feliz.Reactour/main/Feliz.Reactour_logo.png"
 let licenceUrl = "https://github.com/tforkmann/Feliz.Reactour/blob/master/LICENSE.md"
 let configuration = DotNet.BuildConfiguration.Release
 
 // Longer description of the project
 // (used as a description for NuGet package; line breaks are automatically cleaned up)
-let description = """Feliz binding for react-joyride."""
+let description = """Feliz binding for reactour."""
 // List of author names (for NuGet package)
 let authors = [ "Tim Forkmann"]
 let owner = "tForkmann"
 // Tags for your project (for NuGet package)
-let tags = "fsharp;fable;react-joyride;feliz;react;joyride"
+let tags = "fsharp;fable;reactour;feliz;react"
 
 
 Target.create "Clean" (fun _ ->
