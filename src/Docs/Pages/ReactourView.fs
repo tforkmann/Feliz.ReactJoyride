@@ -79,7 +79,7 @@ let code =
 let title = Html.text "QR Code"
 
 [<ReactComponent>]
-let QRCodeView () =
+let ReactourView () =
     Html.div [
         Bulma.content [
             codedView title code ReactourContainer
