@@ -30,6 +30,14 @@ type IReactourStyleProp =
     interface
     end
 
+type IStyleProp =
+    interface
+    end
+
+type IBadgeContentProp =
+    interface
+    end
+
 [<Erase>]
 type ICallbackProp =
     abstract action: string
@@ -41,3 +49,10 @@ type ICallbackProp =
     abstract status: string
     abstract step: obj
     abstract ``type``: string
+
+[<Erase>]
+type IStyleProperties =
+    abstract padding: int with get, set
+    abstract color: string with get, set
+    abstract backgroundColor: string with get, set
+    abstract ``--reactour-accent``: string with get, set

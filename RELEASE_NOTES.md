@@ -1,3 +1,5 @@
+#### 0.1.0 - 2025-10-21
+* Add styles prop
 #### 0.0.9 - 2025-10-21
 * Remove Fable.Browser.Svg dependency
 #### 0.0.8 - 2025-10-21

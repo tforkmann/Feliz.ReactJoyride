@@ -10,41 +10,51 @@ type reactour =
     static member inline children(children: ReactElement list) =
         unbox<IReactourProp> (prop.children children)
     static member inline useTour (useTour: obj) = Interop.mkReactourProp "useTour" useTour
-    static member inline scrollDuration (scrollDuration: int) = Interop.mkReactourProp "scrollDuration" scrollDuration
-    static member inline disableScrolling (disableScrolling: bool) = Interop.mkReactourProp "disableScrolling" disableScrolling
-    static member inline scrollOffset (scrollOffset: int) = Interop.mkReactourProp "scrollOffset" scrollOffset
-    static member inline continuous (continuous: bool) = Interop.mkReactourProp "continuous" continuous
-    static member inline showSkipButton (showSkipButton: bool) = Interop.mkReactourProp "showSkipButton" showSkipButton
-    static member inline showProgress (showProgress: bool) = Interop.mkReactourProp "showProgress" showProgress
-    static member inline scrollToFirstStep (scrollToFirstStep: bool) = Interop.mkReactourProp "scrollToFirstStep" scrollToFirstStep
-    static member inline hideBackButton (hideBackButton: bool) = Interop.mkReactourProp "hideBackButton" hideBackButton
-    static member inline hideCloseButton (hideCloseButton : bool) = Interop.mkReactourProp "hideCloseButton" hideCloseButton
-    static member inline locale (props: ILocaleProp seq) = Interop.mkReactourProp "locale" (createObj !!props)
-    static member inline styles (props: IReactourStylesProp seq) = Interop.mkReactourProp "styles" (createObj !!props)
+    static member inline padding (padding: int) = Interop.mkReactourProp "padding" padding
+    static member inline className (className: string) = Interop.mkReactourProp "className" className
+    static member inline nextButton (nextButton: ReactElement) = Interop.mkReactourProp "nextButton" nextButton
+    static member inline prevButton (prevButton: ReactElement) = Interop.mkReactourProp "prevButton" prevButton
+    static member inline badgeContent (props: IBadgeContentProp seq) : IReactourProp = !!(createObj !!props)
+    static member inline styles (props: IReactourStyleProp seq) = Interop.mkReactourProp "styles" (createObj !!props)
+    static member inline showNavigation (showNavigation: bool) = Interop.mkReactourProp "showNavigation" showNavigation
+    static member inline showBadge (showBadge: bool) = Interop.mkReactourProp "showBadge" showBadge
+    static member inline showPrevNextButtons (showPrevNextButtons: bool) = Interop.mkReactourProp "showPrevNextButtons" showPrevNextButtons
+    static member inline showCloseButton (showCloseButton: bool) = Interop.mkReactourProp "showCloseButton" showCloseButton
+    static member inline showDots (showDots: bool) = Interop.mkReactourProp "showDots" showDots
+
     static member inline callback (callback: ICallbackProp -> unit) : IReactourProp =
         !!("callback" ==> callback)
 
 [<Erase>]
-type reactourStyles =
-    static member inline options (options: IReactourStyleProp seq) = Interop.mkStylesProp "options" (createObj !!options)
-
-[<Erase>]
 type reactourStyle =
-    static member inline arrowColor (color: string) = Interop.mkStyleProp "arrowColor" color
-    static member inline backgroundColor (color: string) = Interop.mkStyleProp "backgroundColor" color
-    static member inline overlayColor (color: string) = Interop.mkStyleProp "overlayColor" color
-    static member inline primaryColor (color: string) = Interop.mkStyleProp "primaryColor" color
-    static member inline textColor (color: string) = Interop.mkStyleProp "textColor" color
-    static member inline width (width: int) = Interop.mkStyleProp "width" width
-    static member inline zIndex (zIndex: int) = Interop.mkStyleProp "zIndex" zIndex
+    static member inline popover (handler: obj -> obj) = !!("popover" ==> handler)
+    static member inline maskArea (handler: obj -> obj) = !!("maskArea" ==> handler)
+
+    static member inline maskWrapper(handler: IStyleProperties -> unit) = !!("maskWrapper" ==> handler)
+    static member inline badge (handler: obj -> obj) = !!("badge" ==> handler)
+    static member inline controls (handler: obj -> obj) = !!("controls" ==> handler)
+    static member inline close (handler: obj -> obj) = !!("close" ==> handler)
+    /// merges a Reactour base style with Feliz-style overrides
+    static member inline merge (baseObj: obj) (props: IStyleProp seq) =
+        // Cast Object.entries(...) to a seq of obj arrays, so pair.[0] and pair.[1] are valid
+        let baseEntries =
+            JS.Constructors.Object.entries baseObj
+            |> unbox<obj[][]>
+            |> Seq.map (fun pair ->
+                let key = pair.[0] :?> string
+                let value = pair.[1]
+                key, value)
+
+        createObj [
+            yield! baseEntries
+            yield! props |> Seq.map unbox<string * obj>
+        ]
 
 [<Erase>]
-type locale =
-    static member inline back (back: string) = Interop.mkLocaleProp "back" back
-    static member inline close (close: string) = Interop.mkLocaleProp "close" close
-    static member inline last (last: string) = Interop.mkLocaleProp "last" last
-    static member inline next (next: string) = Interop.mkLocaleProp "next" next
-    static member inline skip (skip: string) = Interop.mkLocaleProp "skip" skip
+type style =
+    static member inline borderRadius (radius: int) : IStyleProp = Interop.mkStyleProp "borderRadius" radius
+    static member inline color (color: string) : IStyleProp = Interop.mkStyleProp "color" color
+    static member inline backgroundColor (backgroundColor: string) : IStyleProp = Interop.mkStyleProp "backgroundColor" backgroundColor
 
 [<Erase>]
 type steps =

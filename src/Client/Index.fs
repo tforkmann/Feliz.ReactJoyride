@@ -44,6 +44,9 @@ let MyComponent () =
 [<ReactComponent>]
 let Reactour () =
     TourProvider.tourProvider [
+        reactour.showBadge false
+        reactour.showDots false
+        reactour.showPrevNextButtons false
         reactour.steps [
             steps.step [
                 step.selector ".my-button"
@@ -53,6 +56,14 @@ let Reactour () =
                 step.selector ".highlighted-section"
                 step.content "This is a highlighted section."
             ]
+        ]
+        reactour.styles [
+            reactourStyle.badge (fun ``base`` ->
+                reactourStyle.merge ``base`` [
+                    style.backgroundColor "pink"
+                ]
+            )
+
         ]
         reactour.children [
             MyComponent()
