@@ -1,60 +1,46 @@
 {
     "private": true,
     "scripts": {
-        "postcss:watch": "postcss ./src/Client/styles/additional_styles.css -o ./src/Client/styles/output.css --env development -w",
-        "postcss:build": "postcss ./src/Client/styles/additional_styles.css -o ./src/Client/styles/output.css --env production",
-        "prestart": "dotnet tool restore",
-        "startdocs": "cross-os startdocs",
-        "test:build": "dotnet fable tests/Client --outDir tests/Client/output --run webpack -p --config webpack.tests.config.js",
-        "test:live": "dotnet fable tests/Client --outDir tests/Client/output --run webpack-dev-server --config webpack.tests.config.js",
-        "start": "dotnet fable watch ./src/Client --outDir src/Client/output --run vite ./src/Client --port 8080",
-        "build": "dotnet fable ./src/Docs --outDir src/Docs/output && webpack"
-    },
-    "cross-os": {
-        "startdocs": {
-            "darwin": "NODE_ENV=development dotnet fable watch ./src/Docs --outDir src/Docs/output --run webpack serve",
-            "linux": "NODE_ENV=development dotnet fable watch ./src/Docs --outDir src/Docs/output --run webpack serve",
-            "win32": "set NODE_ENV=development& dotnet fable watch ./src/Docs --outDir src/Docs/output --run webpack serve"
-        }
+        "start::client": "dotnet fable watch ./src/Client --outDir ./src/Client/output --run vite serve",
+        "build::client": "dotnet fable ./src/Client --outDir ./src/Client/output --run vite build",
+        "start::docs": "npm install && dotnet fable watch ./src/Docs --outDir ./src/Docs/output --run vite serve --config viteDocs.config.mts",
+        "build::docs": "npm install && dotnet fable ./src/Docs --outDir ./src/Docs/output --run vite build --config viteDocs.config.mts"
     },
     "devDependencies": {
         "@babel/core": "^7.6.4",
         "@babel/plugin-transform-runtime": "^7.6.2",
         "@babel/preset-env": "^7.9.6",
         "@babel/runtime": "^7.6.3",
-        "@vitejs/plugin-react": "^4.3.3",
-        "autoprefixer": "10.4.7",
-        "babel-loader": "^8.0.5",
+        "@fortawesome/fontawesome-free": "^5.15.1",
+        "vite": "^6.4.0",
         "buffer": "^6.0.3",
+        "@vitejs/plugin-react": "^4.3.4",
         "core-js": "^3.3.2",
-        "cross-os": "^1.4.0",
-        "css-loader": "^4.2.1",
-        "cssnano": "5.1.11",
-        "file-loader": "^4.2.0",
-        "mini-css-extract-plugin": "^0.10.0",
-        "npm-run-all": "^4.1.5",
-        "postcss-cli": "^9.1.0",
-        "postcss-fontpath": "^1.0.0",
-        "postcss-import": "^14.0.2",
-        "postcss-loader": "^6.2.0",
-        "process": "^0.11.10",
-        "querystring-es3": "^0.2.1",
+        "http-proxy-middleware": "^3.0.3",
+        "i18next": "^20.3.5",
+        "open-sans-fonts": "^1.6.2",
         "react": "^19.2.0",
+        "remotedev": "^0.2.0",
         "react-dom": "^19.2.0",
-        "remotedev": "^0.2.9",
-        "resolve-url-loader": "^3.1.2",
-        "sass": "^1.26.10",
-        "sass-loader": "^9.0.3",
-        "selfsigned": "^1.10.8",
-        "source-map-loader": "^3.0.0",
+        "@tailwindcss/vite": "^4.0.3",
+        "@tailwindcss/typography": "^0.5.16",
+        "tailwindcss": "^4.1.14",
+        "cssnano": "^7.0.6",
+        "autoprefixer": "^10.4.2",
+        "react-highlight": "0.15.0",
+        "use-sync-external-store": "^1.6.0",
+        "sass": "^1.69.5",
+        "selfsigned": "^2.0.1",
+        "highlight.js": "^11.11.1",
+        "serve-static": "^1.10.2",
         "style-loader": "^1.2.1",
-        "vite": "^5.0.13"
+        "date-fns" : "^4.1.0",
+        "@reactour/tour": "3.8.0",
+        "daisyui": "5.3.7"
     },
-    "dependencies": {
-        "chart.js": "3.9.1",
-        "daisyui": "^3.0.0",
-        "hammerjs": "^2.0.8",
-        "@reactour/tour": "^3.8.0",
-        "tailwindcss": "^3.0.24"
+    "optionalDependencies": {
+        "@rollup/rollup-linux-x64-gnu": "4.39.0",
+        "@tailwindcss/oxide-linux-arm64-gnu": "^4.1.1",
+        "lightningcss-linux-x64-gnu": "^1.29.3"
     }
 }

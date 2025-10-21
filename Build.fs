@@ -81,9 +81,8 @@ Target.create
 Target.create "InstallClient" (fun _ -> run npm "install" ".")
 
 Target.create "Run" (fun _ ->
-    [  "client", npm "start" "."  ]
-      |> runParallel
-
+    [  "client", npm "run start::client" "."  ]
+    |> runParallel
 )
 
 Target.create "RunTests" (fun _ ->
@@ -118,7 +117,6 @@ Target.create "Build" (fun _ ->
         let dir = Path.GetDirectoryName s
         DotNet.build id dir)
 )
-
 
 Target.create "PrepareRelease" (fun _ ->
     Git.Branches.checkout "" false "main"
@@ -197,10 +195,10 @@ Target.create "InstallDocs" (fun _ ->
     run npm "install --frozen-lockfile" docsSrcPath
     run dotnet "restore" docsSrcPath )
 
-Target.create "PublishDocs" (fun _ -> run npm "run build" ".")
+Target.create "PublishDocs" (fun _ -> run npm "run build::docs" "")
 
 Target.create "RunDocs" (fun _ ->
-    run npm "run startdocs" ".")
+    run npm "run start::docs" ".")
 
 let dependencies = [
 
