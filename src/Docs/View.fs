@@ -103,13 +103,13 @@ let private leftSide (p: Page) =
                     "inline-block text-3xl font-title px-5 py-5 font-bold"
                     [ Html.span [
                           color.textPrimary
-                          prop.text "Feliz.ReactJoyride"
+                          prop.text "Feliz.Reactour"
                       ]
                       Html.a [
-                          prop.href "https://www.nuget.org/packages/Feliz.ReactJoyride"
+                          prop.href "https://www.nuget.org/packages/Feliz.Reactour"
                           prop.children [
                               Html.img [
-                                  prop.src "https://img.shields.io/nuget/v/Feliz.ReactJoyride.svg?style=flat-square"
+                                  prop.src "https://img.shields.io/nuget/v/Feliz.Reactour.svg?style=flat-square"
                               ]
                           ]
                       ] ]
@@ -120,7 +120,7 @@ let private leftSide (p: Page) =
                         Daisy.menuTitle [ Html.span "Docs" ]
                         mi "Install" Install
                         mi "Use" Use
-                        mi "ReactJoyride" Page.ReactJoyride
+                        mi "Reactour" Page.Reactour
                         ]
                 ]
             ]
@@ -154,7 +154,7 @@ let AppView (state: State) (dispatch: Msg -> unit) =
         match state.Page with
         | Install -> "Installation", "/docs/install", Pages.Install.InstallView()
         | Use -> "How to use", "/docs/use", Pages.Use.UseView()
-        | ReactJoyride -> "ReactJoyride", "/ReactJoyride", Pages.ReactJoyrideView.ReactJoyrideView()
+        | Reactour -> "Reactour", "/Reactour", Pages.ReactJoyrideView.ReactJoyrideView()
 
     React.router [
         router.hashMode

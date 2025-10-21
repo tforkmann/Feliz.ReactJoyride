@@ -2,7 +2,7 @@ module Index
 
 open Elmish
 open Feliz
-open Feliz.ReactJoyride
+open Feliz.Reactour
 
 type Model = { IsRunning: bool }
 

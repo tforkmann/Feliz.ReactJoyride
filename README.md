@@ -1,23 +1,23 @@
-# Feliz Binding for [ReactJoyride](https://github.com/gilbarbara/react-joyride)
+# Feliz Binding for [Reactour](https://github.com/elrumordelaluz/reactour)
 
-[![Feliz.ReactJoyride on Nuget](https://buildstats.info/nuget/Feliz.ReactJoyride)](https://www.nuget.org/packages/Feliz.ReactJoyride/)
-[![Docs](https://github.com/tforkmann/Feliz.ReactJoyride/actions/workflows/Docs.yml/badge.svg)](https://github.com/tforkmann/Feliz.ReactJoyride/actions/workflows/Docs.yml)
+[![Feliz.Reactour on Nuget](https://buildstats.info/nuget/Feliz.Reactour)](https://www.nuget.org/packages/Feliz.Reactour/)
+[![Docs](https://github.com/tforkmann/Feliz.Reactour/actions/workflows/Docs.yml/badge.svg)](https://github.com/tforkmann/Feliz.Reactour/actions/workflows/Docs.yml)
 
 ## Installation
 Install the nuget package
 ```
-dotnet paket add Feliz.ReactJoyride
+dotnet paket add Feliz.Reactour
 ```
 
 and install the npm package
 
 ```
-npm install --save react-joyride
+npm install --save reactour
 ```
 
 or use Femto:
 ```
-femto install Feliz.ReactJoyride
+femto install Feliz.Reactour
 ```
 
 ## Start test app
@@ -27,8 +27,8 @@ femto install Feliz.ReactJoyride
 dotnet run
 ```
 
-## Example ReactJoyride
-Here is an example ReactJoyride
+## Example Reactour
+Here is an example Reactour
 ```fs
 [<ReactComponent>]
 let Joyride (model:Model) dispatch =

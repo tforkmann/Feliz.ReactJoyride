@@ -8,6 +8,7 @@ open Fake.IO.FileSystemOperators
 open Fake.IO.Globbing.Operators
 open Fake.Tools
 open Helpers
+
 let execContext = Context.FakeExecutionContext.Create false "build.fsx" [ ]
 Context.setExecutionContext (Context.RuntimeContext.Fake execContext)
 
@@ -30,11 +31,11 @@ let release = ReleaseNotes.load "RELEASE_NOTES.md"
 // The profile where the project is posted
 let gitHome = "https://github"
 // The name of the project on GitHub
-let gitName = "Feliz.ReactJoyride"
+let gitName = "Feliz.Reactour"
 
 // The name of the project
 // (used by attributes in AssemblyInfo, name of a NuGet package and directory in 'src')
-let project = "Feliz.ReactJoyride"
+let project = "Feliz.Reactour"
 
 let projectUrl = sprintf "%s/%s" gitHome gitName
 
@@ -43,8 +44,8 @@ let projectUrl = sprintf "%s/%s" gitHome gitName
 let summary = "Feliz React Binding for react-joyride"
 
 let copyright = "Copyright \169 2022"
-let iconUrl = "https://raw.githubusercontent.com/tforkmann/Feliz.ReactJoyride/main/Feliz.ReactJoyride_logo.png"
-let licenceUrl = "https://github.com/tforkmann/Feliz.ReactJoyride/blob/master/LICENSE.md"
+let iconUrl = "https://raw.githubusercontent.com/tforkmann/Feliz.Reactour/main/Feliz.ReactJoyride_logo.png"
+let licenceUrl = "https://github.com/tforkmann/Feliz.Reactour/blob/master/LICENSE.md"
 let configuration = DotNet.BuildConfiguration.Release
 
 // Longer description of the project
@@ -166,7 +167,7 @@ Target.create "Pack" (fun _ ->
                   MSBuildParams = args
               }) projectPath
 
-    pack "Feliz.ReactJoyride"
+    pack "Feliz.Reactour"
 )
 
 let getBuildParam = Environment.environVar

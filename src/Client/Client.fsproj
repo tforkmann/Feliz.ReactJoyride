@@ -11,7 +11,7 @@
         <Compile Include="App.fs" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Feliz.ReactJoyride\Feliz.ReactJoyride.fsproj" />
+        <ProjectReference Include="..\Feliz.Reactour\Feliz.Reactour.fsproj" />
     </ItemGroup>
     <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

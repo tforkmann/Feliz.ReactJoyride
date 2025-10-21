@@ -7,7 +7,7 @@ open Fable.Core.JsInterop
 type Page =
     | Install
     | Use
-    | ReactJoyride
+    | Reactour
 
 
 [<RequireQualifiedAccess>]
@@ -17,7 +17,7 @@ module Page =
     let parseFromUrlSegments =
         function
         | [ "use" ] -> Use
-        | [ "reactjoyride" ] -> ReactJoyride
+        | [ "Reactour" ] -> Reactour
         | [] -> Install
         | _ -> defaultPage
 
@@ -26,7 +26,7 @@ module Page =
     let toUrlSegments =
         function
         | Install -> [] |> noQueryString
-        | ReactJoyride -> ["reactjoyride"] |> noQueryString
+        | Reactour -> ["Reactour"] |> noQueryString
         | Use -> [ "use" ] |> noQueryString
 
 [<RequireQualifiedAccess>]

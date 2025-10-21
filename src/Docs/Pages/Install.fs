@@ -15,7 +15,7 @@ let InstallView () =
                   Html.pre [
                       mockupCode.prefix "$"
                       prop.children [
-                          Html.code "Install-Package Feliz.ReactJoyride"
+                          Html.code "Install-Package Feliz.Reactour"
                       ]
                   ]
               ] ]
@@ -26,7 +26,7 @@ let InstallView () =
                   Html.pre [
                       mockupCode.prefix "$"
                       prop.children [
-                          Html.code "paket add Feliz.ReactJoyride"
+                          Html.code "paket add Feliz.Reactour"
                       ]
                   ]
               ] ]

@@ -1,10 +1,10 @@
-namespace Feliz.ReactJoyride
+namespace Feliz.Reactour
 
 open Fable.Core.JsInterop
 open Fable.Core
 
 [<Erase>]
-type joyride =
+type reactour =
     static member inline steps (props: IStepsProp seq) = !!("steps" ==> props)
     static member inline run (run: bool) = Interop.mkJoyrideProp "run" run
     static member inline scrollDuration (scrollDuration: int) = Interop.mkJoyrideProp "scrollDuration" scrollDuration
@@ -22,7 +22,7 @@ type joyride =
         !!("callback" ==> callback)
 
 [<Erase>]
-type joyrideStyles =
+type reactourStyles =
     static member inline options (options: IJoyrideStyleProp seq) = Interop.mkStylesProp "options" (createObj !!options)
 
 [<Erase>]

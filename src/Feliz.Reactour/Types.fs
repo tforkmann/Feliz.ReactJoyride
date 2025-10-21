@@ -1,7 +1,9 @@
-namespace Feliz.ReactJoyride
+namespace Feliz.Reactour
+
 open Fable.Core
-/// This interface allows us to stop adding random props to the react-joyride.
-type IJoyrideProp =
+
+/// This interface allows us to stop adding random props to the reactour.
+type IReactourProp =
     interface
     end
 
