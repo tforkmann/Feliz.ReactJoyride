@@ -13,5 +13,5 @@ module Interop =
     let inline mkStyleProp (key: string) (value: obj) : IStyleProp = unbox (key, value)
     let inline mkStepsProp (key: string) (value: obj) : IStepsProp = unbox (key, value)
     let inline mkStepProp (key: string) (value: obj) : IStepProp = unbox (key, value)
-    let TourProvider: obj = import "TourProvider" "@reactour/tour"
+    let TourProvider: Feliz.ReactElement = import "TourProvider" "@reactour/tour"
     let useTour: unit -> obj = import "useTour" "@reactour/tour"
