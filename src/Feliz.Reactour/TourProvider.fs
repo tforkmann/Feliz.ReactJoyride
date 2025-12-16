@@ -12,7 +12,7 @@ type TourProvider =
     /// Creates a new TourProvider component.
 
     static member inline tourProvider(props: IReactourProp seq) =
-        Interop.reactApi.createElement (Interop.TourProvider, createObj !!props)
+        ReactLegacy.createElement (Interop.TourProvider, createObj !!props)
 
     static member inline useTour() = Interop.TourProvider
 
